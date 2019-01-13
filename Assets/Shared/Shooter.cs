@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] Projectile projectile;
     [SerializeField] AudioController audioReload;
     [SerializeField] AudioController audioFire;
+    [SerializeField] Transform aimTarget;
     // [HideInInspector]
     Transform muzzel;
 
@@ -57,7 +58,7 @@ public class Shooter : MonoBehaviour
         }
 
         nextFireAllowed = Time.time + rateOfFire;
-
+        muzzel.LookAt(aimTarget);
         //instantiate the projectile;
         Instantiate(projectile, muzzel.position, muzzel.rotation);
         audioFire.play();
