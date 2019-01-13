@@ -2604,7 +2604,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1697407507419922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.88, z: 3.6}
+  m_LocalPosition: {x: 0, y: -10, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4417481395460440}
@@ -3121,7 +3121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1508927777368106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -6.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4513750689061996}
@@ -5063,10 +5063,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rateOfFire: 0.1
   hand: {fileID: 4719123684784762}
-  projectile: {fileID: 114992322565250156, guid: 27b6bf02586132c4eaa85aab3df96e77,
+  projectile: {fileID: 114389077187149574, guid: 27b6bf02586132c4eaa85aab3df96e77,
     type: 2}
   audioReload: {fileID: 114325583488415530}
   audioFire: {fileID: 114501515979956128}
+  aimTarget: {fileID: 4358534235013272}
   reloader: {fileID: 0}
   canFire: 0
 --- !u!114 &114325583488415530
@@ -5113,10 +5114,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rateOfFire: 0.5
   hand: {fileID: 4719123684784762}
-  projectile: {fileID: 114992322565250156, guid: 27b6bf02586132c4eaa85aab3df96e77,
+  projectile: {fileID: 114389077187149574, guid: 27b6bf02586132c4eaa85aab3df96e77,
     type: 2}
   audioReload: {fileID: 114517679832494056}
   audioFire: {fileID: 114920342511118976}
+  aimTarget: {fileID: 4358534235013272}
   reloader: {fileID: 0}
   canFire: 0
 --- !u!114 &114501515979956128
@@ -5162,6 +5164,7 @@ MonoBehaviour:
   reloadTime: 1
   clipSize: 20
   inventory: {fileID: 114853005261667506}
+  weaponType: 0
   shotsFiredInClip: 0
 --- !u!114 &114571872487484244
 MonoBehaviour:
@@ -5174,10 +5177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50883dd909f636147b2b89bede752a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmo: 120
+  maxAmmo: 1200
   reloadTime: 2
-  clipSize: 20
+  clipSize: 200
   inventory: {fileID: 114853005261667506}
+  weaponType: 0
   shotsFiredInClip: 0
 --- !u!114 &114581671710218928
 MonoBehaviour:
@@ -5230,10 +5234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e91fcf79ee1cc4d8ed6c0e67f0076e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 2800000, guid: da874b74d075ce946a1d9bd4b001cd7b, type: 3}
-  size: 16
-  maxAngle: 95
-  minAngle: -40
+  image: {fileID: 2800000, guid: 12d19d1aa05c18a4bad3d4db5251625d, type: 3}
+  size: 25
 --- !u!114 &114853005261667506
 MonoBehaviour:
   m_ObjectHideFlags: 1
