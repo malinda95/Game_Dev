@@ -20,7 +20,6 @@ public class Health : Destructable {
 
     public override void TakeDamage(float amount)
     {
-        
         base.TakeDamage(amount);
         
     }

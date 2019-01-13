@@ -6,15 +6,17 @@ public class PickupItem : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
+
         if (collider.tag != "Player")
             return;
+
         PickUp(collider.transform);
        
     }
 
     public virtual void OnPickup(Transform item)
     {
-        print("test");
+        print("test");  
         //nothing to do
     }
 
