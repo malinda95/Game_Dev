@@ -4,23 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ThirdPersonCamara : MonoBehaviour {
-
     [System.Serializable]
     public class CameraRig{
-        public Vector3 CameraOffset;
-        public float CrouchHeight;
+        public Vector3 camaraOffset;
         public float Damping;
-    } 
+    }
+    // 1.25 1 -8
+    // damping 5
 
-    // 1.25 , 1 , -8
-    // 5
-
-    [SerializeField]
-    CameraRig defaultCamera;
-
-    [SerializeField]
-    CameraRig aimCamera;
-
+    [SerializeField] CameraRig defaultCamera;
+    [SerializeField] CameraRig AimCamera;
 
     Transform CamaraLookTarget;
 
@@ -44,13 +37,12 @@ public class ThirdPersonCamara : MonoBehaviour {
 
         CameraRig cameraRig = defaultCamera;
 
-        if (LocalPlayer.PlayerState.WeaponState == PlayerState.EWeaponState.AIMING || LocalPlayer.PlayerState.WeaponState == PlayerState.EWeaponState.AIMEDFIRING)
-            cameraRig = aimCamera;
+        if(LocalPlayer.PlayerState.WeaponState == PlayerState.EWeaponState.AIMING || LocalPlayer.PlayerState.WeaponState == PlayerState.EWeaponState.AIMEDFIRING){
+            cameraRig = AimCamera;
+        }
 
-        float targetHeight = cameraRig.CameraOffset.y + (LocalPlayer.PlayerState.MoveState == PlayerState.EMoveState.CROUCHING ? cameraRig.CrouchHeight : 0);
-        Vector3 targetPosisiton = CamaraLookTarget.transform.position + LocalPlayer.transform.forward * cameraRig.CameraOffset.z+ 
-                LocalPlayer.transform.up * targetHeight +
-                LocalPlayer.transform.right * cameraRig.CameraOffset.x;
+        Vector3 targetPosisiton = CamaraLookTarget.transform.position + LocalPlayer.transform.forward * cameraRig.camaraOffset.z
+                                                  + LocalPlayer.transform.up * cameraRig.camaraOffset.y + LocalPlayer.transform.right * cameraRig.camaraOffset.x;
 
         Quaternion targetRotation = Quaternion.LookRotation(CamaraLookTarget.position - targetPosisiton, Vector3.up);
 

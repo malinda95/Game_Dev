@@ -48,6 +48,17 @@ public class Player : MonoBehaviour {
         }
     }
 
+    private PlayerState m_playerState;
+    public PlayerState PlayerState
+    {
+        get
+        {
+            if (m_playerState == null)
+                m_playerState = GetComponentInChildren<PlayerState>();
+            return m_playerState;
+        }
+    }
+
     Vector2 mouseInput;
     InputController playerInput;
 

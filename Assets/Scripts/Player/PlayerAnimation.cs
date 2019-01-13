@@ -30,6 +30,10 @@ public class PlayerAnimation : MonoBehaviour {
 
         // up down animation 
         animator.SetFloat("AimAngle", PlayerAim.GetAngle());
+        // aiming
+        animator.SetBool("IsAiming",
+                          GameManager.Instance.LocalPlayer.PlayerState.WeaponState == PlayerState.EWeaponState.AIMING || 
+                         GameManager.Instance.LocalPlayer.PlayerState.WeaponState == PlayerState.EWeaponState.AIMEDFIRING);
 
     }
 }

@@ -13,7 +13,7 @@ public class InputController : MonoBehaviour {
     // add to animation handle
     public bool IsSprinting;
     public bool IsWalking;
-    public bool IsCrouched=false;
+    public bool IsCrouched;
     public bool MouseWheelUp;
     public bool MouseWheelDown;
 

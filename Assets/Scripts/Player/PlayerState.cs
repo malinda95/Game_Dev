@@ -55,7 +55,8 @@ public class PlayerState : MonoBehaviour
             WeaponState = EWeaponState.AIMEDFIRING;
     }
 
-    void SetMoveState() {
+    void SetMoveState()
+    {
         MoveState = EMoveState.RUNNINING;
 
         if (InputController.IsSprinting)
@@ -68,3 +69,4 @@ public class PlayerState : MonoBehaviour
             MoveState = EMoveState.CROUCHING;
     }
 }
+
