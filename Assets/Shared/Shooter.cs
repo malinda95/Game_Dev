@@ -11,10 +11,12 @@ public class Shooter : MonoBehaviour
     [SerializeField] AudioController audioReload;
     [SerializeField] AudioController audioFire;
     [SerializeField] Transform aimTarget;
+
     // [HideInInspector]
     Transform muzzel;
 
     public WeaponReloader reloader;
+    private ParticleSystem muzzleParticleSystem;
 
     float nextFireAllowed;
     public bool canFire;
@@ -30,6 +32,7 @@ public class Shooter : MonoBehaviour
     {
         muzzel = transform.Find("Model/Muzzle");
         reloader = GetComponent<WeaponReloader>();
+        muzzleParticleSystem = muzzel.GetComponent<ParticleSystem>();
 
     }
 
@@ -38,6 +41,13 @@ public class Shooter : MonoBehaviour
             return;
         reloader.Reload();
         audioReload.play();
+    }
+
+    void FireEffect()
+    {
+        if (muzzleParticleSystem == null)
+            return;
+        muzzleParticleSystem.Play();
     }
 
     public virtual void Fire()
@@ -59,6 +69,7 @@ public class Shooter : MonoBehaviour
 
         nextFireAllowed = Time.time + rateOfFire;
         muzzel.LookAt(aimTarget);
+        FireEffect();
         //instantiate the projectile;
         Instantiate(projectile, muzzel.position, muzzel.rotation);
         audioFire.play();
