@@ -17,7 +17,7 @@ public class AmmoCounter : MonoBehaviour {
     {
         playerShoot = player.GetComponent<PlayerShoot>();
         playerShoot.OnWeaponSwitch += HandleOnWeaponSwitch;
-        //HandleOnAmmoChanged();
+        // HandleOnAmmoChanged();
     }
 
     void HandleOnWeaponSwitch(Shooter activeWeapon)

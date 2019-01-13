@@ -23,6 +23,8 @@ public class Player : MonoBehaviour {
 
     Vector3 previousPosition;
 
+    public PlayerAim playerAim;
+
     private MoveController m_MoveController;
     public MoveController MoveController
     {
@@ -78,6 +80,8 @@ public class Player : MonoBehaviour {
         transform.Rotate(Vector3.up * mouseInput.x * MouseControl.Sensitivity.x);
 
         Crosshair.LookHeight(mouseInput.y * MouseControl.Sensitivity.y);
+
+        playerAim.SetRotation(mouseInput.y * MouseControl.Sensitivity.y);
     }
 
     private void Move()

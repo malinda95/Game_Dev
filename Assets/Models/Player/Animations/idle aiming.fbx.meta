@@ -73,6 +73,12 @@ ModelImporter:
     100134: swat:Spine
     100136: swat:Spine1
     100138: swat:Spine2
+    100140: Camera
+    100142: Cube
+    100144: Lamp
+    100146: Geo
+    100148: Soldier_body
+    100150: Soldier_head
     400000: //RootNode
     400002: swat:Head
     400004: swat:HeadTop_End
@@ -143,8 +149,26 @@ ModelImporter:
     400134: swat:Spine
     400136: swat:Spine1
     400138: swat:Spine2
+    400140: Camera
+    400142: Cube
+    400144: Lamp
+    400146: Geo
+    400148: Soldier_body
+    400150: Soldier_head
+    2000000: Camera
+    2100000: Material
+    2100002: Soldier_body1
+    2100004: Soldier_head6
+    2300000: Cube
+    3300000: Cube
+    4300000: Cube
+    4300002: Soldier_head
+    4300004: Soldier_body
     7400000: mixamo.com
     9500000: //RootNode
+    10800000: Lamp
+    13700000: Soldier_body
+    13700002: Soldier_head
   externalObjects: {}
   materials:
     importMaterials: 1
