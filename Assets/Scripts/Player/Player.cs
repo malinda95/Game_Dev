@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[RequireComponent(typeof(PlayerState))]
 
 public class Player : MonoBehaviour {
 
@@ -36,14 +37,14 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private Crosshair m_Crosshair;
-    private Crosshair Crosshair
+    private PlayerState m_PlayerState;
+    public PlayerState PlayerState
     {
         get
         {
-            if (m_Crosshair == null)
-                m_Crosshair = GetComponentInChildren<Crosshair>();
-            return m_Crosshair;
+            if (m_PlayerState == null)
+                m_PlayerState = GetComponent<PlayerState>();
+            return m_PlayerState;
         }
     }
 
@@ -78,8 +79,6 @@ public class Player : MonoBehaviour {
         mouseInput.y = Mathf.Lerp(mouseInput.y, playerInput.MouseInput.y, 1f / MouseControl.Damping.y);
 
         transform.Rotate(Vector3.up * mouseInput.x * MouseControl.Sensitivity.x);
-
-        Crosshair.LookHeight(mouseInput.y * MouseControl.Sensitivity.y);
 
         playerAim.SetRotation(mouseInput.y * MouseControl.Sensitivity.y);
     }
