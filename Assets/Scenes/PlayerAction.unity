@@ -1040,8 +1040,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7541b11f18b4bc8a42d11409e404b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camaraOffset: {x: 1.25, y: 1, z: -8}
-  Damping: 5
+  defaultCamera:
+    CameraOffset: {x: 1.25, y: 1, z: -8}
+    CrouchHeight: 0
+    Damping: 5
+  aimCamera:
+    CameraOffset: {x: 0.36, y: 0.6, z: -4.14}
+    CrouchHeight: 0
+    Damping: 15
   LocalPlayer: {fileID: 0}
 --- !u!1 &416951608 stripped
 GameObject:
@@ -1597,7 +1603,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 685962692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.88, z: 3.6}
+  m_LocalPosition: {x: -0.8, y: 0.7, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 231569493}
@@ -1616,8 +1622,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 2800000, guid: da874b74d075ce946a1d9bd4b001cd7b, type: 3}
   size: 16
-  maxAngle: 95
-  minAngle: -40
 --- !u!4 &696695152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400090, guid: 68b8255e90b2f40cd9da792af382aa45,
@@ -3805,6 +3809,7 @@ GameObject:
   - component: {fileID: 1474426461}
   - component: {fileID: 1474426463}
   - component: {fileID: 1474426464}
+  - component: {fileID: 1474426465}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3919,6 +3924,19 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1882505149}
   - {fileID: 1401051754}
+--- !u!114 &1474426465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1474426457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ad3e268f41e4296bc90247dab7e4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveState: 0
+  WeaponState: 0
 --- !u!1 &1478728292
 GameObject:
   m_ObjectHideFlags: 0
