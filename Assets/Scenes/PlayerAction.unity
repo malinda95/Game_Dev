@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1038,8 +1038,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7541b11f18b4bc8a42d11409e404b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camaraOffset: {x: 1.25, y: 1, z: -8}
-  Damping: 5
+  defaultCamera:
+    camaraOffset: {x: 1.25, y: 1, z: -8}
+    Damping: 5
+  AimCamera:
+    camaraOffset: {x: 1.25, y: 1, z: -6.5}
+    Damping: 15
   LocalPlayer: {fileID: 0}
 --- !u!1 &416951608 stripped
 GameObject:
@@ -3577,6 +3581,7 @@ GameObject:
   - component: {fileID: 1474426461}
   - component: {fileID: 1474426463}
   - component: {fileID: 1474426464}
+  - component: {fileID: 1474426465}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3689,6 +3694,19 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1882505149}
   - {fileID: 1401051754}
+--- !u!114 &1474426465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1474426457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ad3e268f41e4296bc90247dab7e4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveState: 0
+  WeaponState: 0
 --- !u!1 &1478728292
 GameObject:
   m_ObjectHideFlags: 0
