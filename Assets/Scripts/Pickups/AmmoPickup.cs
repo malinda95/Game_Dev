@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPickup : PickupItem {
+public class AmmoPickup : PickupItem
+{
 
-    // Use this for initialization
+    [SerializeField] EWeaponType weaponType;
+    [SerializeField] float respawnTime;
+    [SerializeField] int amount;
     public override void OnPickup(Transform item)
     {
-   
-        print("Whatever");
+
+        var playerInventory = item.GetComponentInChildren<Container>();
+        GameManager.Instance.Respawner.Despawn(gameObject, respawnTime);
+        playerInventory.Put(weaponType.ToString(), amount);
+
+        item.GetComponent<PlayerShoot>().ActiveWeapon.reloader.HandleOnAmmoChanged();
     }
 }
