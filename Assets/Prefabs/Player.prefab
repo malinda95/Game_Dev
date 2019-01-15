@@ -1225,6 +1225,7 @@ GameObject:
   - component: {fileID: 54565459391718792}
   - component: {fileID: 114954938603325830}
   - component: {fileID: 114651894677508276}
+  - component: {fileID: 114841927211181610}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5217,6 +5218,38 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
   - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
   delayBetweenClips: 0.35
+--- !u!114 &114841927211181610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1627817002315834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 203
+    i1: 128
+    i2: 79
+    i3: 82
+    i4: 175
+    i5: 238
+    i6: 196
+    i7: 175
+    i8: 203
+    i9: 244
+    i10: 202
+    i11: 255
+    i12: 166
+    i13: 101
+    i14: 153
+    i15: 251
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114954938603325830
 MonoBehaviour:
   m_ObjectHideFlags: 1
