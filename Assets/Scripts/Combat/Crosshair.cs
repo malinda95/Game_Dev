@@ -14,7 +14,8 @@ public class Crosshair : MonoBehaviour {
            GameManager.Instance.LocalPlayer.PlayerState.WeaponState == PlayerState.EWeaponState.AIMEDFIRING)
 
         {
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+            Camera cam = GameObject.Find("PlayerCamera").GetComponent<Camera>();
+            Vector3 screenPosition = cam.WorldToScreenPoint(transform.position);
             screenPosition.y = Screen.height - screenPosition.y;
             GUI.DrawTexture(new Rect(screenPosition.x-size/2, screenPosition.y-size/2, size, size), image);
         }
