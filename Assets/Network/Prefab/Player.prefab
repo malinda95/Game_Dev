@@ -1356,6 +1356,8 @@ GameObject:
   - component: {fileID: 54118340446889688}
   - component: {fileID: 114291503610433024}
   - component: {fileID: 114991356099100462}
+  - component: {fileID: 114129872518806500}
+  - component: {fileID: 114234476614948884}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3198,6 +3200,54 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114129872518806500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989144505831838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 246
+    i1: 3
+    i2: 61
+    i3: 222
+    i4: 22
+    i5: 158
+    i6: 116
+    i7: 60
+    i8: 170
+    i9: 119
+    i10: 49
+    i11: 135
+    i12: 30
+    i13: 105
+    i14: 228
+    i15: 119
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114234476614948884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989144505831838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e6e22f99ae14f13b5bb3e914598ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentsToDisable:
+  - {fileID: 114291503610433024}
+  - {fileID: 114991356099100462}
+  - {fileID: 20629410204862646}
+  - {fileID: 81020202202095194}
 --- !u!114 &114291503610433024
 MonoBehaviour:
   m_ObjectHideFlags: 1
