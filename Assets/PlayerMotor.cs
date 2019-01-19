@@ -2,8 +2,12 @@
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMotor : MonoBehaviour {
+    [SerializeField]
+    public Camera cam;
+
     private Vector3 velocity = Vector3.zero;
     private Vector3 rotation = Vector3.zero;
+    private Vector3 cameraRotationX = Vector3.zero;
 
     private Rigidbody rb;
 
@@ -23,6 +27,13 @@ public class PlayerMotor : MonoBehaviour {
     {
         rotation = _rotation;
     }
+
+    // Gets a rotational vector for the camera
+    public void RotateCamera(Vector3 _cameraRotationX)
+    {
+        cameraRotationX = _cameraRotationX;
+    }
+
 
 
     void FixedUpdate()
@@ -47,15 +58,10 @@ public class PlayerMotor : MonoBehaviour {
     void PerformRotation()
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
-        //if (cam != null)
-        //{
-        //    // Set our rotation and clamp it
-        //    currentCameraRotationX -= cameraRotationX;
-        //    currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
-
-        //    //Apply our rotation to the transform of our camera
-        //    cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
-        //}
+        if (cam != null)
+        {
+            cam.transform.Rotate(-cameraRotationX);
+        }
     }
 
 }
