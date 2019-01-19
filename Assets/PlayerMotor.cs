@@ -1,16 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMotor : MonoBehaviour {
+    private Vector3 velocity = Vector3.zero;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    // Gets a movement vector
+    public void Move(Vector3 _velocity)
+    {
+        velocity = _velocity;
+    }
+
+    void FixedUpdate()
+    {
+        PerformMovement();
+       
+    }
+
+    //Perform movement based on velocity variable
+    void PerformMovement()
+    {
+        if (velocity != Vector3.zero)
+        {
+            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        }
+
+       
+
+    }
+
 }
