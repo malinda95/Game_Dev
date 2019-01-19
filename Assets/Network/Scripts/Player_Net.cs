@@ -1,16 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
 
-public class Player_Net : MonoBehaviour {
+[RequireComponent(typeof(PlayerSetup))]
+public class Player_Net : NetworkBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [SerializeField]
+    private int max_health = 100;
+
+    [SyncVar]
+    private int current_health;
+
+    private void Awake()
+    {
+        current_health = max_health;
+    }
+
+    public void TakeDamage(int ammount ){
+        current_health -= ammount;
+        Debug.Log(transform.name + " has " + current_health + "health now");
+    }
+
+
+
 }
