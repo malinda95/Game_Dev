@@ -12,6 +12,12 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField]
     string remoteLayerName = "RemotePlayer";
 
+
+    [SerializeField]
+    GameObject playerUIPrefab;
+    [HideInInspector]
+    public GameObject playerUIInstance;
+
     void Start()
     {
         // Disable components that should only be
@@ -21,7 +27,15 @@ public class PlayerSetup : NetworkBehaviour
             DisableComponents();
             AssignRemoteLayer();
         }
-        GetComponent<Player_Net>().SetupPlayer();
+
+        else
+        {
+            GetComponent<Player_Net>().SetupPlayer();
+            // Create PlayerUI
+            playerUIInstance = Instantiate(playerUIPrefab);
+            playerUIInstance.name = playerUIPrefab.name;
+
+        }
     }
     public override void OnStartClient()
     {

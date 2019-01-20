@@ -1362,7 +1362,6 @@ GameObject:
   - component: {fileID: 153509224010800884}
   - component: {fileID: 95440754068905572}
   - component: {fileID: 114809206396325018}
-  - component: {fileID: 114138748638059460}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3210,25 +3209,6 @@ MonoBehaviour:
     i15: 119
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &114138748638059460
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1989144505831838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 95440754068905572}
-  m_ParameterSendBits: 3
-  param0: 
-  param1: 
-  param2: 
-  param3: 
-  param4: 
-  param5: 
 --- !u!114 &114234476614948884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3248,6 +3228,9 @@ MonoBehaviour:
   - {fileID: 114055735520451994}
   - {fileID: 95440754068905572}
   remoteLayerName: RemotePlayer
+  playerUIPrefab: {fileID: 1496463354227812, guid: 8dd0ea225e3db432b8c6cc1aefec5296,
+    type: 2}
+  playerUIInstance: {fileID: 0}
 --- !u!114 &114291503610433024
 MonoBehaviour:
   m_ObjectHideFlags: 1
