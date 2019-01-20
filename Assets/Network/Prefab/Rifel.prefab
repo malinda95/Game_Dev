@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4302260738682290}
+  - component: {fileID: 114832244023238436}
   m_Layer: 0
   m_Name: Rifel
   m_TagString: Untagged
@@ -867,6 +868,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222238432127158}
   m_Mesh: {fileID: 4300006, guid: 735305e2d367646baa2f51e994099f0d, type: 3}
+--- !u!114 &114832244023238436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1117616829882152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a42dcd7f60045018f0fc8ca9b4a6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleFlash: {fileID: 198507982845630490}
+  hitEffectPrefab: {fileID: 0}
 --- !u!198 &198507982845630490
 ParticleSystem:
   m_ObjectHideFlags: 1
