@@ -107,8 +107,9 @@ public class PlayerShooter :  NetworkBehaviour{
             {
                 CmdPlayerShot(_hit.collider.name,(int)currentWeapon.damage, transform.name);
             }
+            // We hit something, call the OnHit method on the server
+            CmdOnHit(_hit.point, _hit.normal);
 
-           
         }
     }
 

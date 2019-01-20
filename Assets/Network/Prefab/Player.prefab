@@ -2554,6 +2554,11 @@ MonoBehaviour:
   disableOnDeath:
   - {fileID: 114055735520451994}
   - {fileID: 114291503610433024}
+  deathEffect: {fileID: 126342, guid: 0bbb7c5d8454b49dc929b42a90dc0914, type: 2}
+  spawnEffect: {fileID: 136626, guid: 80d301d01a8ea445ab921c6a2a06df79, type: 2}
+  disableGameObjectsOnDeath:
+  - {fileID: 1316794551170964}
+  - {fileID: 1073994457951790}
 --- !u!114 &114964092038310150
 MonoBehaviour:
   m_ObjectHideFlags: 1

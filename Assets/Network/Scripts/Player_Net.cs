@@ -41,6 +41,14 @@ public class Player_Net : NetworkBehaviour
     private Behaviour[] disableOnDeath;
     private bool[] wasEnabled;
 
+   [SerializeField]
+    private GameObject deathEffect;
+    [SerializeField]
+    private GameObject spawnEffect;
+
+    [SerializeField]
+    private GameObject[] disableGameObjectsOnDeath;
+
     public void SetupPlayer()
     {
         wasEnabled = new bool[disableOnDeath.Length];
@@ -74,16 +82,20 @@ public class Player_Net : NetworkBehaviour
             disableOnDeath[i].enabled = false;
         }
 
-        ////Disable GameObjects
-        //for (int i = 0; i < disableGameObjectsOnDeath.Length; i++)
-        //{
-        //    disableGameObjectsOnDeath[i].SetActive(false);
-        //}
+        //Disable GameObjects
+        for (int i = 0; i < disableGameObjectsOnDeath.Length; i++)
+        {
+            disableGameObjectsOnDeath[i].SetActive(false);
+        }
 
         //Disable the collider
         Collider _col = GetComponent<Collider>();
         if (_col != null)
             _col.enabled = false;
+
+        //Spawn a death effect
+        GameObject _gfxIns = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(_gfxIns, 3f);
 
         StartCoroutine(Respawn());
 
@@ -118,20 +130,20 @@ public class Player_Net : NetworkBehaviour
             disableOnDeath[i].enabled = wasEnabled[i];
         }
 
-        ////Enable the gameobjects
-        //for (int i = 0; i < disableGameObjectsOnDeath.Length; i++)
-        //{
-        //    disableGameObjectsOnDeath[i].SetActive(true);
-        //}
+        //Enable the gameobjects
+        for (int i = 0; i < disableGameObjectsOnDeath.Length; i++)
+        {
+            disableGameObjectsOnDeath[i].SetActive(true);
+        }
 
         //Enable the collider
         Collider _col = GetComponent<Collider>();
         if (_col != null)
             _col.enabled = true;
 
-        ////Create spawn effect
-        //GameObject _gfxIns = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
-        //Destroy(_gfxIns, 3f);
+        //Create spawn effect
+        GameObject _gfxIns = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
+        Destroy(_gfxIns, 3f);
     }
 
 
