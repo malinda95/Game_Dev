@@ -35,12 +35,12 @@ public class JoinGame : MonoBehaviour {
 	{
 		ClearRoomList();
 
-		//if (networkManager.matchMaker == null)
-		//{
-		//	networkManager.StartMatchMaker();
-		//}
+        if (networkManager.matchMaker == null)
+        {
+            networkManager.StartMatchMaker();
+        }
 
-		networkManager.matchMaker.ListMatches(0, 20, "", true, 0, 0, OnMatchList);
+        networkManager.matchMaker.ListMatches(0, 20, "", true, 0, 0, OnMatchList);
 		status.text = "Loading...";
 	}
 
@@ -59,14 +59,14 @@ public class JoinGame : MonoBehaviour {
 			GameObject _roomListItemGO = Instantiate(roomListItemPrefab);
 			_roomListItemGO.transform.SetParent(roomListParent);
 
-            //RoomListItem _roomListItem = _roomListItemGO.GetComponent<RoomListItem>();
-            //if (_roomListItem != null)
-            //{
-            //	_roomListItem.Setup(match, JoinRoom);
-            //}
+            RoomListItem _roomListItem = _roomListItemGO.GetComponent<RoomListItem>();
+            if (_roomListItem != null)
+            {
+                _roomListItem.Setup(match, JoinRoom);
+            }
 
 
-            //// as well as setting up a callback function that will join the game.
+            // as well as setting up a callback function that will join the game.
 
             roomList.Add(_roomListItemGO);
         }
