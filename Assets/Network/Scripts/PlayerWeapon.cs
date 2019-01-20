@@ -8,4 +8,6 @@ public class PlayerWeapon {
 
     public float fireRate = 4f;
 
+    public GameObject graphics;
+
 }
