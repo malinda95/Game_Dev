@@ -21,6 +21,7 @@ public class PlayerSetup : NetworkBehaviour
             DisableComponents();
             AssignRemoteLayer();
         }
+        GetComponent<Player_Net>().SetupPlayer();
     }
     public override void OnStartClient()
     {

@@ -4,7 +4,24 @@ using System.Linq;
 
 public class GameManager_Net : MonoBehaviour {
 
+    public static GameManager_Net instance;
+    public MatchSettings matchSettings;
 
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one GameManager in scene.");
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
+
+
+    #region Player Tracking 
     private const string PLAYER_ID_PREFIX = "Player ";
 
     private static Dictionary<string, Player_Net> players = new Dictionary<string, Player_Net>();
@@ -25,17 +42,18 @@ public class GameManager_Net : MonoBehaviour {
         return players[_playerID];
     }
 
-    void OnGUI ()
-    {
-        GUILayout.BeginArea(new Rect(200, 200, 200, 500));
-        GUILayout.BeginVertical();
+    //void OnGUI ()
+    //{
+    //    GUILayout.BeginArea(new Rect(200, 200, 200, 500));
+    //    GUILayout.BeginVertical();
 
-        foreach (string _playerID in players.Keys)
-        {
-            GUILayout.Label(_playerID + "  -  " + players[_playerID].transform.name);
-        }
+    //    foreach (string _playerID in players.Keys)
+    //    {
+    //        GUILayout.Label(_playerID + "  -  " + players[_playerID].transform.name);
+    //    }
 
-        GUILayout.EndVertical();
-        GUILayout.EndArea();
-    }
+    //    GUILayout.EndVertical();
+    //    GUILayout.EndArea();
+    //}
+    #endregion
 }
