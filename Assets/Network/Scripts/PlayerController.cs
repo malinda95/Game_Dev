@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour {
     [SerializeField]
@@ -12,10 +13,12 @@ public class PlayerController : MonoBehaviour {
 
     // Component caching
     private PlayerMotor motor;
+    private Animator animator;
 
     private void Start()
     {
         motor = GetComponent<PlayerMotor>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -30,8 +33,16 @@ public class PlayerController : MonoBehaviour {
         // Final movement vector
         Vector3 _velocity = (_movHorizontal + _movVertical) * speed;
 
+        // animation 
+        animator.SetFloat("Vertical", _zMov);
+        animator.SetFloat("Horizontal", _xMov);
+
         //Apply movement
         motor.Move(_velocity);
+
+
+
+        //animator.SetFloat("Horizontal", _xMov);
 
         // Calculate rotation as a 3D vector(turning around)
 
