@@ -338,7 +338,7 @@ MonoBehaviour:
     m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -583,23 +583,12 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!1 &470664250 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1689024438634420, guid: eea8e30509f793f40b6ca5fce8a931d0,
+--- !u!114 &470664251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114846059300941502, guid: eea8e30509f793f40b6ca5fce8a931d0,
     type: 2}
   m_PrefabInternal: {fileID: 1152196986}
---- !u!114 &470664251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 470664250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67bb1a6f126ab234fb720ff814755405, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomSize: 6
 --- !u!1 &628019418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,11 +1064,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4740648207367070, guid: eea8e30509f793f40b6ca5fce8a931d0, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114335476262400206, guid: eea8e30509f793f40b6ca5fce8a931d0,
-        type: 2}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
