@@ -6,4 +6,6 @@ public class PlayerWeapon {
     public float damage = 10;
     public float range = 100;
 
+    public float fireRate = 4f;
+
 }

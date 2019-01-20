@@ -25,13 +25,28 @@ public class PlayerShooter :  NetworkBehaviour{
 
     private void Update()
     {
-        if(Input.GetButtonDown("Fire1")){
-            Shoot();
+        if (Pw.fireRate <= 0f)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+            }
+        }
+        else
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                InvokeRepeating("Shoot", 0f, 1f / Pw.fireRate);
+            }
+            else if (Input.GetButtonUp("Fire1"))
+            {
+                CancelInvoke("Shoot");
+            }
         }
     }
     [Client]
     void Shoot(){
-
+        Debug.Log("TEST: Fire ");
         RaycastHit _hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, Pw.range, mask))
         {
