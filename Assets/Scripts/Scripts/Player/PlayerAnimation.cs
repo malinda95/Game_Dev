@@ -8,16 +8,22 @@ public class PlayerAnimation : MonoBehaviour {
 
     [SerializeField]
     private Camera Player_Camera;
+    [SerializeField]
+    private AudioController WalkingSound;
     // Use this for initialization
-   
-	void Awake () {
+
+    void Awake () {
         animator = GetComponentInChildren<Animator>();
         PlayerInputController = GetComponentInChildren<InputController>();
-
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if(Mathf.Abs(PlayerInputController.Vertical) > 0 || Mathf.Abs(PlayerInputController.Horizontal) > 0){
+            Debug.Log("walking");
+            WalkingSound.play();
+        }
+
         animator.SetFloat("Vertical", PlayerInputController.Vertical);
         animator.SetFloat("Horizontal", PlayerInputController.Horizontal);
 

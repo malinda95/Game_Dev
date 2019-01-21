@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Timer))]
 public class AudioController : MonoBehaviour {
 
     [SerializeField] AudioClip[] clips;
     [SerializeField] float delayBetweenClips;
+    Timer Timer;
 
     bool canPlay;
     AudioSource source;
 	// Use this for initialization
 	void Start () {
         source = GetComponent<AudioSource>();
+        Timer = GetComponent<Timer>();
         canPlay = true;
+
 	}
 	
 	// Update is called once per frame
@@ -22,7 +26,7 @@ public class AudioController : MonoBehaviour {
         if (!canPlay)
             return;
 
-        GameManager.Instance.Timer.Add(() =>
+        Timer.Add(() =>
         {
             canPlay = true;
         }, delayBetweenClips);
