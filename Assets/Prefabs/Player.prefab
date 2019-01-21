@@ -2438,11 +2438,11 @@ MonoBehaviour:
   m_Target: {fileID: 4870016702690848}
   m_ChildIndex: 0
   m_SendInterval: 0.1
-  m_SyncRotationAxis: 1
+  m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.3
-  m_InterpolateMovement: 0
+  m_InterpolateMovement: 0.5
 --- !u!114 &114770747135702932
 MonoBehaviour:
   m_ObjectHideFlags: 1
