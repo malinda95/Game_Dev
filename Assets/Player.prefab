@@ -478,8 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba6b6c515fdc6c49b8d58ab912e83b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPauseMenu: {fileID: 114000010135994580, guid: b135717c33bc8f64e8f5fc0953c22a7c,
-    type: 2}
+  PlayerPauseMenu: {fileID: 0}
   maxHealth: 100
   disableOnDeath:
   - {fileID: 11433214}

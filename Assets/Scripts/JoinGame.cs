@@ -97,7 +97,7 @@ public class JoinGame : MonoBehaviour {
     {
         ClearRoomList();
 
-        int countdown = 10;
+        int countdown = 20;
         while (countdown > 0)
         {
             status.text = "JOINING...(" +countdown+")";
