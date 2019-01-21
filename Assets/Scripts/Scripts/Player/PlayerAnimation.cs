@@ -13,7 +13,7 @@ public class PlayerAnimation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         animator.SetFloat("Vertical", Input.GetAxis("Vertical"));
-        //animator.SetFloat("Horizontal", GameManager.Instance.InputController.Horizontal);
+        animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
         //// Use for transition
         //animator.SetBool("IsWalking", GameManager.Instance.InputController.IsWalking);
