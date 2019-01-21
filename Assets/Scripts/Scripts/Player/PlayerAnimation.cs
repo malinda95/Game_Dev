@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour {
     Animator animator;
+    InputController PlayerInputController;
     // Use this for initialization
    
 	void Awake () {
         animator = GetComponentInChildren<Animator>();
-	}
+        PlayerInputController = GetComponentInChildren<InputController>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        animator.SetFloat("Vertical", Input.GetAxis("Vertical"));
-        animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        animator.SetFloat("Vertical", PlayerInputController.Vertical);
+        animator.SetFloat("Horizontal", PlayerInputController.Horizontal);
 
         //// Use for transition
-        //animator.SetBool("IsWalking", GameManager.Instance.InputController.IsWalking);
-        //animator.SetBool("IsSprinting", GameManager.Instance.InputController.IsSprinting);
-        //animator.SetBool("IsCrouched", GameManager.Instance.InputController.IsCrouched);
+        animator.SetBool("IsWalking", PlayerInputController.IsWalking);
+        animator.SetBool("IsSprinting", PlayerInputController.IsSprinting);
+        animator.SetBool("IsCrouched", PlayerInputController.IsCrouched);
 
-        //// up down animation 
+        // up down animation 
         //animator.SetFloat("AimAngle", PlayerAim.GetAngle());
         //// aiming
         //animator.SetBool("IsAiming",

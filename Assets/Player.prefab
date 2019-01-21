@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 11478292}
   - component: {fileID: 11468604}
   - component: {fileID: 15319452}
+  - component: {fileID: 114788011222722438}
   - component: {fileID: 11433114}
   - component: {fileID: 11415700}
   - component: {fileID: 9504178}
@@ -920,6 +921,7 @@ MonoBehaviour:
   - {fileID: 8100924}
   - {fileID: 2058040}
   - {fileID: 114053653548791000}
+  - {fileID: 114788011222722438}
   remoteLayerName: RemotePlayer
   dontDrawLayerName: DontDraw
   playerGraphics: {fileID: 168006}
@@ -22984,6 +22986,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveState: 0
   WeaponState: 0
+--- !u!114 &114788011222722438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487b205b593ad0e49a593ea60a564466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vertical: 0
+  Horizontal: 0
+  MouseInput: {x: 0, y: 0}
+  Fire1: 0
+  Fire2: 0
+  Reload: 0
+  IsSprinting: 0
+  IsWalking: 0
+  IsCrouched: 0
+  MouseWheelUp: 0
+  MouseWheelDown: 0
 --- !u!114 &114948771694248360
 MonoBehaviour:
   m_ObjectHideFlags: 1
