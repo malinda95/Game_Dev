@@ -42,7 +42,7 @@ public class PlayerShoot : NetworkBehaviour {
 
         if (currentWeapon.bullets < currentWeapon.maxBullets)
         {
-            if (Input.GetButtonDown("Reload")
+            if (Input.GetButtonDown("Reload"))
             {
                 weaponManager.Reload();
                 return;
