@@ -5,14 +5,19 @@ public class PlayerUI : MonoBehaviour {
 	[SerializeField]
 	RectTransform thrusterFuelFill;
 
-	[SerializeField]
+    [SerializeField]
+    RectTransform healthBarFill;
+
+    [SerializeField]
 	GameObject pauseMenu;
 
+    private Player player;
 	private PlayerController controller;
 
-	public void SetController (PlayerController _controller)
+	public void SetPlayer (Player _player)
 	{
-		controller = _controller;
+		player = _player;
+        controller = player.GetComponent<PlayerController>();
 	}
 
 	void Start ()
@@ -23,6 +28,7 @@ public class PlayerUI : MonoBehaviour {
 	void Update ()
 	{
 		SetFuelAmount (controller.GetThrusterFuelAmount());
+        SetHealthAmount(player.GetHealthPct());
 
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
@@ -41,4 +47,8 @@ public class PlayerUI : MonoBehaviour {
 		thrusterFuelFill.localScale = new Vector3(1f, _amount, 1f);
 	}
 
+    void SetHealthAmount(float _amount)
+    {
+        healthBarFill.localScale = new Vector3(1f, _amount, 1f);
+    }
 }
