@@ -17,7 +17,8 @@ public class PlayerShoot : NetworkBehaviour {
 	private WeaponManager weaponManager;
     [SerializeField]
     private AudioController shootingSound;
-
+    [SerializeField]
+    AudioController WeaponReload;
     private PlayerState playerState;
    
 
@@ -122,15 +123,6 @@ public class PlayerShoot : NetworkBehaviour {
         currentWeapon.bullets--;
         Debug.Log("Remaining Bullets: " + currentWeapon.bullets);
 
-        if (currentWeapon.bullets <= 0)
-        {
-            weaponManager.Reload();
-            return;
-        }
-
-        currentWeapon.bullets--;
-        Debug.Log("Remaining Bullets: " + currentWeapon.bullets);
-
 		//We are shooting, call the OnShoot method on the server
 		CmdOnShoot();
 
@@ -148,7 +140,9 @@ public class PlayerShoot : NetworkBehaviour {
 
         if (currentWeapon.bullets <= 0)
         {
+            WeaponReload.play();
             weaponManager.Reload();
+
         }
 
 	}
