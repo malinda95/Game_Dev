@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 114053653548791000}
   - component: {fileID: 136200115426107530}
   - component: {fileID: 114948771694248360}
+  - component: {fileID: 114906947076285316}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -927,7 +928,7 @@ MonoBehaviour:
   - {fileID: 114788011222722438}
   - {fileID: 114788011222722438}
   - {fileID: 114067640380530184}
-  - {fileID: 0}
+  - {fileID: 114906947076285316}
   remoteLayerName: RemotePlayer
   dontDrawLayerName: DontDraw
   playerGraphics: {fileID: 168006}
@@ -23339,6 +23340,19 @@ MonoBehaviour:
   IsCrouched: 0
   MouseWheelUp: 0
   MouseWheelDown: 0
+--- !u!114 &114906947076285316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ad3e268f41e4296bc90247dab7e4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveState: 0
+  WeaponState: 0
 --- !u!114 &114948771694248360
 MonoBehaviour:
   m_ObjectHideFlags: 1

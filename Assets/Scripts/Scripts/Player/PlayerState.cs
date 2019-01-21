@@ -32,38 +32,38 @@ public class PlayerState : MonoBehaviour
 
    
 
-    //private void Update()
-    //{
-    //    SetWeaponState();
-    //    SetMoveState();
-    //}
+    private void Update()
+    {
+        SetWeaponState();
+        SetMoveState();
+    }
 
-    //void SetWeaponState()
-    //{
-    //    WeaponState = EWeaponState.IDLE;
+    void SetWeaponState()
+    {
+        WeaponState = EWeaponState.IDLE;
 
-    //    if (InputController.Fire1)
-    //        WeaponState = EWeaponState.FIRING;
+        if (inputController.Fire1)
+            WeaponState = EWeaponState.FIRING;
 
-    //    if (InputController.Fire2)
-    //        WeaponState = EWeaponState.AIMING;
+        if (inputController.Fire2)
+            WeaponState = EWeaponState.AIMING;
 
-    //    if (InputController.Fire1 && InputController.Fire2)
-    //        WeaponState = EWeaponState.AIMEDFIRING;
-    //}
+        if (inputController.Fire1 && inputController.Fire2)
+            WeaponState = EWeaponState.AIMEDFIRING;
+    }
 
-    //void SetMoveState()
-    //{
-    //    MoveState = EMoveState.RUNNINING;
+    void SetMoveState()
+    {
+        MoveState = EMoveState.RUNNINING;
 
-    //    if (InputController.IsSprinting)
-    //        MoveState = EMoveState.SPRINTING;
+        if (inputController.IsSprinting)
+            MoveState = EMoveState.SPRINTING;
 
-    //    if (InputController.IsWalking)
-    //        MoveState = EMoveState.WALKING;
+        if (inputController.IsWalking)
+            MoveState = EMoveState.WALKING;
 
-    //    if (InputController.IsCrouched)
-    //        MoveState = EMoveState.CROUCHING;
-    //}
+        if (inputController.IsCrouched)
+            MoveState = EMoveState.CROUCHING;
+    }
 }
 

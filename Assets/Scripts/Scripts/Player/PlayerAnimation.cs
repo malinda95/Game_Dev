@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof(PlayerState))]
+
 public class PlayerAnimation : MonoBehaviour {
     Animator animator;
     InputController PlayerInputController;
@@ -10,11 +12,13 @@ public class PlayerAnimation : MonoBehaviour {
     private Camera Player_Camera;
     [SerializeField]
     private AudioController WalkingSound;
-    // Use this for initialization
 
+    private PlayerState playerState;
+    // Use this for initialization
     void Awake () {
         animator = GetComponentInChildren<Animator>();
         PlayerInputController = GetComponentInChildren<InputController>();
+        playerState = GetComponent<PlayerState>();
     }
 	
 	// Update is called once per frame
@@ -35,9 +39,9 @@ public class PlayerAnimation : MonoBehaviour {
         // up down animation 
         animator.SetFloat("AimAngle", CheckAngle(Player_Camera.transform.eulerAngles.x));
         //// aiming
-        //animator.SetBool("IsAiming",
-        // GameManager.Instance.LocalPlayer.PlayerState.WeaponState == PlayerState.EWeaponState.AIMING || 
-        //GameManager.Instance.LocalPlayer.PlayerState.WeaponState == PlayerState.EWeaponState.AIMEDFIRING);
+        animator.SetBool("IsAiming",
+         playerState.WeaponState == PlayerState.EWeaponState.AIMING || 
+        playerState.WeaponState == PlayerState.EWeaponState.AIMEDFIRING);
 
         Debug.Log(CheckAngle(Player_Camera.transform.eulerAngles.x));
     }
