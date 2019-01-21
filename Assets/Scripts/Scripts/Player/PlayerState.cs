@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
+    private InputController inputController;
+
+    private void Start()
+    {
+        inputController = GetComponent<InputController>();
+    }
 
     public enum EMoveState
     {

@@ -14,6 +14,8 @@ public class PlayerShoot : NetworkBehaviour {
 
 	private PlayerWeapon currentWeapon;
 	private WeaponManager weaponManager;
+    [SerializeField]
+    private AudioController shootingSound;
 
 	void Start ()
 	{
@@ -90,6 +92,7 @@ public class PlayerShoot : NetworkBehaviour {
 		{
 			return;
 		}
+        shootingSound.play();
 
 		//We are shooting, call the OnShoot method on the server
 		CmdOnShoot();
