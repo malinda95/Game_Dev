@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent (typeof (WeaponManager))]
+[RequireComponent(typeof(PlayerState))]
 public class PlayerShoot : NetworkBehaviour {
 
 	private const string PLAYER_TAG = "Player";
@@ -17,7 +18,10 @@ public class PlayerShoot : NetworkBehaviour {
     [SerializeField]
     private AudioController shootingSound;
 
-	void Start ()
+    private PlayerState playerState;
+   
+
+    void Start ()
 	{
 		if (cam == null)
 		{
@@ -26,7 +30,8 @@ public class PlayerShoot : NetworkBehaviour {
 		}
 
 		weaponManager = GetComponent<WeaponManager>();
-	}
+        playerState = GetComponent<PlayerState>();
+    }
 
 	void Update ()
 	{
@@ -92,6 +97,9 @@ public class PlayerShoot : NetworkBehaviour {
 		{
 			return;
 		}
+        if(playerState.MoveState == PlayerState.EMoveState.SPRINTING){
+            return;
+        }
         shootingSound.play();
 
 		//We are shooting, call the OnShoot method on the server

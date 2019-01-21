@@ -3,6 +3,7 @@ using UnityEngine;
 //[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(ConfigurableJoint))]
 [RequireComponent(typeof(PlayerMotor))]
+
 public class PlayerController : MonoBehaviour {
 
 	[SerializeField]
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private float thrusterFuelRegenSpeed = 0.3f;
 	private float thrusterFuelAmount = 1f;
+
 
 	public float GetThrusterFuelAmount ()
 	{
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		motor = GetComponent<PlayerMotor>();
 		joint = GetComponent<ConfigurableJoint>();
-		//animator = GetComponent<Animator>();
+       
 
 		SetJointSettings(jointSpring);
 	}
