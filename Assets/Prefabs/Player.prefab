@@ -2426,22 +2426,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 246
-    i1: 3
-    i2: 61
-    i3: 222
-    i4: 22
-    i5: 158
-    i6: 116
-    i7: 60
-    i8: 170
-    i9: 119
-    i10: 49
-    i11: 135
-    i12: 30
-    i13: 105
-    i14: 228
-    i15: 119
+    i0: 84
+    i1: 73
+    i2: 110
+    i3: 163
+    i4: 82
+    i5: 49
+    i6: 196
+    i7: 69
+    i8: 136
+    i9: 149
+    i10: 92
+    i11: 202
+    i12: 255
+    i13: 3
+    i14: 110
+    i15: 239
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114234476614948884
@@ -2767,8 +2767,8 @@ ConfigurableJoint:
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: -0.53}
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
