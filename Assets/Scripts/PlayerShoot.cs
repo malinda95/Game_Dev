@@ -102,6 +102,15 @@ public class PlayerShoot : NetworkBehaviour {
         }
         shootingSound.play();
 
+        if (currentWeapon.bullets <= 0)
+        {
+            Debug.Log("Out of Bullet");
+            return;
+        }
+
+        currentWeapon.bullets--;
+        Debug.Log("Remaining Bullets: " + currentWeapon.bullets);
+
 		//We are shooting, call the OnShoot method on the server
 		CmdOnShoot();
 
