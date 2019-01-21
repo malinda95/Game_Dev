@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using UnityEngine.Networking;
+using UnityEngine.Networking.Match;
 
 [RequireComponent(typeof(PlayerSetup))]
 public class Player : NetworkBehaviour {
+
+    [SerializeField]
+    PauseMenu PlayerPauseMenu;
 
 	[SyncVar]
 	private bool _isDead = false;
@@ -12,6 +17,9 @@ public class Player : NetworkBehaviour {
 		get { return _isDead; }
 		protected set { _isDead = value; }
 	}
+    private NetworkManager networkManager;
+
+   
 
     [SerializeField]
     private int maxHealth = 100;
@@ -37,9 +45,19 @@ public class Player : NetworkBehaviour {
 	[SerializeField]
 	private GameObject spawnEffect;
 
-	private bool firstSetup = true;
+    [SerializeField]
+    private GameObject killEffect;
 
-	public void SetupPlayer ()
+    private bool firstSetup = true;
+    private int life_Count;
+
+    private void Start()
+    {
+        networkManager = NetworkManager.singleton;
+        life_Count = 3;
+    }
+
+    public void SetupPlayer ()
     {
 		if (isLocalPlayer)
 		{
@@ -74,17 +92,6 @@ public class Player : NetworkBehaviour {
 		SetDefaults();
 	}
 
-	//void Update()
-	//{
-	//	if (!isLocalPlayer)
-	//		return;
-
-	//	if (Input.GetKeyDown(KeyCode.K))
-	//	{
-	//		RpcTakeDamage(99999);
-	//	}
-	//}
-
 	[ClientRpc]
     public void RpcTakeDamage (int _amount)
     {
@@ -101,10 +108,17 @@ public class Player : NetworkBehaviour {
 		}
     }
 
-	private void Die()
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.G)){
+            RpcTakeDamage(200);
+        }
+    }
+
+    private void Die()
 	{
 		isDead = true;
-
+        life_Count -= 1;
 		//Disable components
 		for (int i = 0; i < disableOnDeath.Length; i++)
 		{
@@ -121,10 +135,17 @@ public class Player : NetworkBehaviour {
 		Collider _col = GetComponent<Collider>();
 		if (_col != null)
 			_col.enabled = false;
-
-		//Spawn a death effect
-		GameObject _gfxIns = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-		Destroy(_gfxIns, 3f);
+        if(life_Count>=1){
+            //Spawn a death effect
+            GameObject _gfxIns = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(_gfxIns, 3f);
+        }
+        else{
+            //Spawn a death effect
+            GameObject _gfxIns = (GameObject)Instantiate(killEffect, transform.position,Quaternion.identity);
+            Destroy(_gfxIns, 5f);
+        }
+		
 
 		//Switch cameras
 		if (isLocalPlayer)
@@ -140,15 +161,22 @@ public class Player : NetworkBehaviour {
 
 	private IEnumerator Respawn ()
 	{
-		yield return new WaitForSeconds(GameManager.instance.matchSettings.respawnTime);
 
-		Transform _spawnPoint = NetworkManager.singleton.GetStartPosition();
-		transform.position = _spawnPoint.position;
-		transform.rotation = _spawnPoint.rotation;
+        if(life_Count>0){
+            yield return new WaitForSeconds(GameManager.instance.matchSettings.respawnTime);
 
-		yield return new WaitForSeconds(0.1f);
+            Transform _spawnPoint = NetworkManager.singleton.GetStartPosition();
+            transform.position = _spawnPoint.position;
+            transform.rotation = _spawnPoint.rotation;
 
-		SetupPlayer();
+            yield return new WaitForSeconds(0.1f);
+
+            SetupPlayer();
+        }
+        else{
+            PlayerPauseMenu.LeaveRoom();
+        }
+
 
 		Debug.Log(transform.name + " respawned.");
 	}

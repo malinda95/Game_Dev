@@ -17,7 +17,8 @@ public class PlayerShoot : NetworkBehaviour {
 	private WeaponManager weaponManager;
     [SerializeField]
     private AudioController shootingSound;
-
+    [SerializeField]
+    AudioController WeaponReload;
     private PlayerState playerState;
    
 
@@ -139,7 +140,9 @@ public class PlayerShoot : NetworkBehaviour {
 
         if (currentWeapon.bullets <= 0)
         {
+            WeaponReload.play();
             weaponManager.Reload();
+
         }
 
 	}
