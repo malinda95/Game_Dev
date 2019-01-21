@@ -586,7 +586,11 @@ MonoBehaviour:
     damage: 5
     range: 100
     fireRate: 10
+    maxBullets: 20
+    bullets: 20
+    reloadTime: 1
     graphics: {fileID: 1117616829882152, guid: bb4dcc87c691b4720a936c32b3f9df4e, type: 2}
+  isReloading: 0
 --- !u!114 &11468604
 MonoBehaviour:
   m_ObjectHideFlags: 1

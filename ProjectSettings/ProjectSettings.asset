@@ -714,9 +714,9 @@ PlayerSettings:
     Unity_Ads: 0
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 51a80212-3321-49a8-8145-5cb5cce43f6f
-  projectName: MultiplayerFPS (1)
-  organizationId: kalifef
+  cloudProjectId: b3fa1bea-214c-4416-bc01-3cdc8bc05ca1
+  projectName: MultiPlayerFPS(1)
+  organizationId: ayeshanmax
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
