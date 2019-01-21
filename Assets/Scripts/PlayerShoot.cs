@@ -45,6 +45,7 @@ public class PlayerShoot : NetworkBehaviour {
         {
             if (Input.GetButtonDown("Reload"))
             {
+                WeaponReload.play();
                 weaponManager.Reload();
                 return;
             }
@@ -116,6 +117,7 @@ public class PlayerShoot : NetworkBehaviour {
 
         if (currentWeapon.bullets <= 0)
         {
+            WeaponReload.play();
             weaponManager.Reload();
             return;
         }
